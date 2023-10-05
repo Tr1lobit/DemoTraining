@@ -1,0 +1,45 @@
+﻿<Window x:Class="Demo_Afonichev.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Demo_Afonichev"
+        mc:Ignorable="d"
+        Title="Demo" 
+        MinHeight="720" MinWidth="1280"
+        Height="900" Width="1600"
+        MaxHeight="1080" MaxWidth="1920"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width=".4*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListView x:Name="EventLv"
+                  SelectionChanged="EventLv_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Лого"
+                                    DisplayMemberBinding="{Binding Logo}"/>
+                    <GridViewColumn Header="Название"
+                                    DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Направление"
+                                    DisplayMemberBinding="{Binding Direction.Name}"/>
+                    <GridViewColumn Header="Дата"
+                                    DisplayMemberBinding="{Binding Date, StringFormat ={} {0:dd MMMM yyy}}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button Grid.Column="1"
+                Height="100"
+                Width="350"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Content="Авторизация"
+                FontSize="35"/>
+
+    </Grid>
+</Window>

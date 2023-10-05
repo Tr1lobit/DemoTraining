@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8b006ce8e5334d668c7eb591ebacba9b" Name="Diagram1">
+        <EntityTypeShape EntityType="DemoDb_AfonichevModel.Activity" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoDb_AfonichevModel.ActivityJury" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoDb_AfonichevModel.City" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoDb_AfonichevModel.Direction" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoDb_AfonichevModel.Event" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoDb_AfonichevModel.Gender" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoDb_AfonichevModel.Member" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoDb_AfonichevModel.Role" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoDb_AfonichevModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="DemoDb_AfonichevModel.FK_Activity_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoDb_AfonichevModel.FK_ActivityJury_Activity" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoDb_AfonichevModel.FK_ActivityJury_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoDb_AfonichevModel.FK_Event_City" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoDb_AfonichevModel.FK_Event_Direction" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoDb_AfonichevModel.FK_Event_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoDb_AfonichevModel.FK_Member_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoDb_AfonichevModel.FK_Member_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
