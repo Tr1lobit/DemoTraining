@@ -21,15 +21,9 @@ namespace Demo_Afonichev.View.Windows
     public partial class AuthorizationWindow : Window
     {
         int KaptchaNum;
-        private int time = 10;
-        private DispatcherTimer Timer;
         public AuthorizationWindow()
         {
             InitializeComponent();
-
-            Timer = new DispatcherTimer();
-            Timer.Interval = new TimeSpan(0, 0, 1);
-            Timer.Tick += Timer_Tick;
 
             Random rand = new Random();
             int da = rand.Next(0, 2);
@@ -44,29 +38,26 @@ namespace Demo_Afonichev.View.Windows
                 KaptchaNum = 2;
             }
         }
-
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            if(time>0)
-            {
-                time--;
-            }
-            else
-            {
-                KaptchaCheckBtn.IsEnabled = true;
-            }
-            
-        }
-
         private void KaptchaCheckBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (KaptchaNum == 1)
+            switch (KaptchaNum)
             {
-                if (KaptchaTb.Text != "27ab")
-                {
-                    KaptchaCheckBtn.IsEnabled = false;
-                    Timer.Start();
-                }
+                case 1:
+                    {
+                        if (KaptchaTb.Text != "27ab")
+                        {
+                            App.Timer();
+                            if (App.check == 0)
+                            {
+                                KaptchaCheckBtn.IsEnabled = false;
+                            }
+                            else
+                            {
+                                KaptchaCheckBtn.IsEnabled = true;
+                            }
+                        }
+                    }
+                    break;
             }
         }
     }

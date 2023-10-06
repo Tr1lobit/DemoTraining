@@ -16,9 +16,10 @@ namespace Demo_Afonichev
     public partial class App : Application
     {
         public static DemoDb_AfonichevEntities context = new DemoDb_AfonichevEntities();
-
-        public static void Timer()
+        public static int check;
+        public static void Timer(object da)
         {
+           
             int time = 10;
             DispatcherTimer Timer;
             Timer = new DispatcherTimer();
@@ -29,12 +30,13 @@ namespace Demo_Afonichev
             {
                 if (time > 0)
                 {
+                    check = 0;
                     time--;
                 }
                 else
                 {
                     Timer.Stop();
-                    MessageBox.Show("Yap");
+                    check = 1;
                 }
             }
         }
