@@ -39,7 +39,10 @@
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
                 Content="Авторизация"
-                FontSize="35"/>
+                FontSize="35"
+                Name="AuthorizationBtn"
+                Click="AuthorizationBtn_Click"/>
+        <!--<TextBlock-->
 
     </Grid>
 </Window>

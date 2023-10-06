@@ -33,5 +33,11 @@ namespace Demo_Afonichev
             EventWindow eventWindow = new EventWindow(EventLv.SelectedItem as Event);
             eventWindow.ShowDialog();
         }
+
+        private void AuthorizationBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AuthorizationWindow authorizationWindow = new AuthorizationWindow();
+            authorizationWindow.ShowDialog();
+        }
     }
 }
