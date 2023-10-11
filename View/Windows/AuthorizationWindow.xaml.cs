@@ -46,14 +46,51 @@ namespace Demo_Afonichev.View.Windows
                     {
                         if (KaptchaTb.Text != "27ab")
                         {
-                            App.Timer();
-                            if (App.check == 0)
+                            KaptchaCheckBtn.IsEnabled = false;
+                            int time = 5;
+                            DispatcherTimer Timer;
+                            Timer = new DispatcherTimer();
+                            Timer.Interval = new TimeSpan(0, 0, 1);
+                            Timer.Tick += Timer_Tick;
+                            Timer.Start();
+                            void Timer_Tick(object test, EventArgs a)
                             {
-                                KaptchaCheckBtn.IsEnabled = false;
+                                if (time > 0)
+                                {
+                                    time--;
+                                }
+                                else
+                                {
+                                    Timer.Stop();
+                                    KaptchaCheckBtn.IsEnabled = true;
+                                }
                             }
-                            else
+                        }
+                    }
+                    break;
+
+                case 2:
+                    {
+                        if (KaptchaTb.Text != "zr71")
+                        {
+                            KaptchaCheckBtn.IsEnabled = false;
+                            int time = 5;
+                            DispatcherTimer Timer;
+                            Timer = new DispatcherTimer();
+                            Timer.Interval = new TimeSpan(0, 0, 1);
+                            Timer.Tick += Timer_Tick;
+                            Timer.Start();
+                            void Timer_Tick(object test, EventArgs a)
                             {
-                                KaptchaCheckBtn.IsEnabled = true;
+                                if (time > 0)
+                                {
+                                    time--;
+                                }
+                                else
+                                {
+                                    Timer.Stop();
+                                    KaptchaCheckBtn.IsEnabled = true;
+                                }
                             }
                         }
                     }

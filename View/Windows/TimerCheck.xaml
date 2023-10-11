@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="TimerCheck" Height="450" Width="800">
     <Grid>
-        <Button x:Name="TimerCheckBtn"
-                Click="TimerCheckBtn_Click"/>
+        <!--<Button x:Name="TimerCheckBtn"
+                Click="TimerCheckBtn_Click"/>-->
     </Grid>
 </Window>

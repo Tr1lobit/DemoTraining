@@ -20,17 +20,11 @@ namespace Demo_Afonichev.View.Windows
     /// </summary>
     public partial class TimerCheck : Window
     {
+        //ЧИСТО ДЛЯ ТЕСТО НАПИСАННОГО ТАЙМЕРА!!!
         
         public TimerCheck()
         {
             InitializeComponent();
-        }
-
-        
-
-        private void TimerCheckBtn_Click(object sender, RoutedEventArgs e)
-        {
-            App.Timer();
         }
     }
 }
