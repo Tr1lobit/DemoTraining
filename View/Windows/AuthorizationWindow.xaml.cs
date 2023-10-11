@@ -90,7 +90,33 @@ namespace Demo_Afonichev.View.Windows
 
             if (member != null && kaptchaCheck)
             {
-                MessageBox.Show("Поздравляю!!!");
+                switch (member.RoleId)
+                {
+                    case 1:
+                        {
+                            MemberWindow memberWindow = new MemberWindow();
+                            memberWindow.Show();
+                        }
+                        break;
+                    case 2:
+                        {
+                            ModeratorWindow moderatorWindow = new ModeratorWindow();
+                            moderatorWindow.Show();
+                        }
+                        break;
+                    case 3:
+                        {
+                            OrganizatorWindow organizatorWindow = new OrganizatorWindow();
+                            organizatorWindow.Show();
+                        }
+                        break;
+                    case 4:
+                        {
+                            JuriWindow juriWindow = new JuriWindow();
+                            juriWindow.Show();
+                        }
+                        break;
+                }
             }
             else if (FailCheck == 3)
             {
