@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo_Afonichev.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace Demo_Afonichev.View.Windows
     /// </summary>
     public partial class AuthorizationWindow : Window
     {
+        int FailCheck = 0;
         int KaptchaNum;
         public AuthorizationWindow()
         {
@@ -40,31 +42,32 @@ namespace Demo_Afonichev.View.Windows
         }
         private void KaptchaCheckBtn_Click(object sender, RoutedEventArgs e)
         {
+            bool kaptchaCheck = false;
+            int id;
+
+            try
+            {
+                id = Convert.ToInt32(IdTb.Text);
+            }
+            catch
+            {
+                id = 0;
+            }
+
+            Member member = App.context.Member.FirstOrDefault(p => PasswordPb.Password == p.Password && id == p.Id);
+
             switch (KaptchaNum)
             {
                 case 1:
                     {
                         if (KaptchaTb.Text != "27ab")
                         {
-                            KaptchaCheckBtn.IsEnabled = false;
-                            int time = 5;
-                            DispatcherTimer Timer;
-                            Timer = new DispatcherTimer();
-                            Timer.Interval = new TimeSpan(0, 0, 1);
-                            Timer.Tick += Timer_Tick;
-                            Timer.Start();
-                            void Timer_Tick(object test, EventArgs a)
-                            {
-                                if (time > 0)
-                                {
-                                    time--;
-                                }
-                                else
-                                {
-                                    Timer.Stop();
-                                    KaptchaCheckBtn.IsEnabled = true;
-                                }
-                            }
+                            FailCheck++;
+                            MessageBox.Show("Неверный ID или пароль");
+                        }
+                        else
+                        {
+                            kaptchaCheck = true;
                         }
                     }
                     break;
@@ -73,29 +76,46 @@ namespace Demo_Afonichev.View.Windows
                     {
                         if (KaptchaTb.Text != "zr71")
                         {
-                            KaptchaCheckBtn.IsEnabled = false;
-                            int time = 5;
-                            DispatcherTimer Timer;
-                            Timer = new DispatcherTimer();
-                            Timer.Interval = new TimeSpan(0, 0, 1);
-                            Timer.Tick += Timer_Tick;
-                            Timer.Start();
-                            void Timer_Tick(object test, EventArgs a)
-                            {
-                                if (time > 0)
-                                {
-                                    time--;
-                                }
-                                else
-                                {
-                                    Timer.Stop();
-                                    KaptchaCheckBtn.IsEnabled = true;
-                                }
-                            }
+                            FailCheck++;
+                            MessageBox.Show("Неверный ID или пароль");
+
+                        }
+                        else
+                        {
+                            kaptchaCheck = true;
                         }
                     }
                     break;
             }
+
+            if (member != null && kaptchaCheck)
+            {
+                MessageBox.Show("Поздравляю!!!");
+            }
+            else if (FailCheck == 3)
+            {
+                KaptchaCheckBtn.IsEnabled = false;
+                int time = 5;
+                DispatcherTimer Timer;
+                Timer = new DispatcherTimer { Interval = new TimeSpan(0, 0, 1) };
+                Timer.Tick += Timer_Tick;
+                Timer.Start();
+                void Timer_Tick(object test, EventArgs a)
+                {
+                    if (time > 0)
+                    {
+                        time--;
+                    }
+                    else
+                    {
+                        Timer.Stop();
+                        KaptchaCheckBtn.IsEnabled = true;
+                        FailCheck = 0;
+                    }
+                }
+            }
+
+
         }
     }
 }
