@@ -96,24 +96,29 @@ namespace Demo_Afonichev.View.Windows
                         {
                             MemberWindow memberWindow = new MemberWindow();
                             memberWindow.Show();
+                            this.Close();
                         }
                         break;
                     case 2:
                         {
                             ModeratorWindow moderatorWindow = new ModeratorWindow();
                             moderatorWindow.Show();
+                            this.Close();
                         }
                         break;
                     case 3:
                         {
                             OrganizatorWindow organizatorWindow = new OrganizatorWindow();
                             organizatorWindow.Show();
+                            this.Close();
+
                         }
                         break;
                     case 4:
                         {
                             JuriWindow juriWindow = new JuriWindow();
                             juriWindow.Show();
+                            this.Close();
                         }
                         break;
                 }
